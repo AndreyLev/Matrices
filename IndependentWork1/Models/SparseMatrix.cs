@@ -63,10 +63,10 @@ namespace IndependentWork1.Models
                 {
                     if (matrix[i].Vector.ContainsKey(k))
                     {
-                        if (matrix[i][k] == 0) Console.Write("0\t");
-                        else Console.Write("{0,5:##.##}\t ", matrix[i][k]);
+                        if (matrix[i][k] == 0) continue;
+                        Console.Write("{0,5:##.#0}\t ", matrix[i][k]);
                     }
-                    else Console.Write("{0,5}\t", 0);
+                    
                     
                     
                     

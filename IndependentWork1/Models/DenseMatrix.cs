@@ -28,12 +28,13 @@ namespace IndependentWork1.Models
 
         public void printMatrix()
         {
+            
             for (int i = 0; i < RowNumber; i++)
             {
                 for (int j = 0; j < ColumnNumber; j++)
                 {
-                    if (matrix[i][j] == 0) Console.Write("{0,5}\t", 0);
-                    else Console.Write("{0,5:##.##}\t ", matrix[i][j]);
+                    if (matrix[i][j] == 0) continue;
+                    Console.Write("{0,7:##.#0} ", matrix[i][j]);
                 }
                 Console.WriteLine();
             }
