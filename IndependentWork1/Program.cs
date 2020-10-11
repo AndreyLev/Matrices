@@ -10,11 +10,19 @@ namespace IndependentWork1
     {
         static void Main(string[] args)
         {
+            int rowCount;
+            int columnCount;
+            int nonValueElementsNumber;
+            int matrixMaxValue;
             Console.WriteLine("----Пустые значения - нулевые значения----\n");
 
             Console.WriteLine("----ПЛОТНАЯ МАТРИЦА----");
-            DenseMatrix denseMatrix = new DenseMatrix(5, 12);
-            MatrixInitiator.FillMatrix(denseMatrix, 14, 25);
+            rowCount = 5;
+            columnCount = 12;
+            nonValueElementsNumber = 14;
+            matrixMaxValue = 25;
+            DenseMatrix denseMatrix = new DenseMatrix(rowCount, columnCount);
+            MatrixInitiator.FillMatrix(denseMatrix, nonValueElementsNumber, matrixMaxValue);
             MatrixStatistics denseMatrixStatistics = new MatrixStatistics(denseMatrix);
             Console.WriteLine("Размер матрицы: {0} x {1}", denseMatrix.RowNumber, denseMatrix.ColumnNumber);
             denseMatrix.printMatrix();
@@ -26,8 +34,12 @@ namespace IndependentWork1
             Console.WriteLine();
 
             Console.WriteLine("----РАЗРЕЖЕННАЯ МАТРИЦА----");
-            SparseMatrix sparseMatrix = new SparseMatrix(7, 5);
-            MatrixInitiator.FillMatrix(sparseMatrix, 12, 15);
+            rowCount = 7;
+            columnCount = 5;
+            nonValueElementsNumber = 12;
+            matrixMaxValue = 15;
+            SparseMatrix sparseMatrix = new SparseMatrix(rowCount, columnCount);
+            MatrixInitiator.FillMatrix(sparseMatrix, nonValueElementsNumber, matrixMaxValue);
             MatrixStatistics sparseMatrixStatistics = new MatrixStatistics(sparseMatrix);
             Console.WriteLine("Размер матрицы: {0} x {1}", sparseMatrix.RowNumber, sparseMatrix.ColumnNumber);
             sparseMatrix.printMatrix();
