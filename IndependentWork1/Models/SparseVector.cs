@@ -1,7 +1,6 @@
 ﻿using IndependentWork1.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace IndependentWork1.Models
 {
@@ -20,11 +19,15 @@ namespace IndependentWork1.Models
         {
             get
             {
-                return vector[index];
+                if (vector.ContainsKey(index))
+                    return vector[index];
+
+                return 0;
             }
             set
             {
-                vector[index] = value;
+                if (vector.ContainsKey(index))
+                    vector[index] = value;
             }
         }
 
@@ -54,7 +57,7 @@ namespace IndependentWork1.Models
 
         public int setValue(int index, double value)
         {
-             this[index] = value;
+            this[index] = value;
             return 1;
         }
 

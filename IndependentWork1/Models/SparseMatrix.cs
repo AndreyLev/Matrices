@@ -1,8 +1,5 @@
-﻿using IndependentWork1.Interfaces;
-using System;
+﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Text;
 
 namespace IndependentWork1.Models
 {
@@ -55,26 +52,26 @@ namespace IndependentWork1.Models
 
         public void printMatrix()
         {
-           
-            for (int i = 0; i < matrix.Length; i++)
+
+            for (int i = 0; i < RowNumber; i++)
             {
-                
+
                 for (int k = 0; k < ColumnNumber; k++)
                 {
-                    if (matrix[i].Vector.ContainsKey(k))
+                    // if (matrix[i].Vector.ContainsKey(k))
+                    // {
+                    if (this[i, k] == 0)
                     {
-                        if (matrix[i][k] == 0) continue;
-                        Console.Write("{0,5:##.#0}\t ", matrix[i][k]);
+                        Console.Write("| {0,5} |", " ");
+                        continue;
                     }
-                    
-                    
-                    
-                    
-                }
-                
+                    Console.Write("| {0,5:00.00} |", this[i, k]);
+                    // }
 
+                }
                 Console.WriteLine();
             }
+
         }
 
         public void collapse()

@@ -1,7 +1,5 @@
 ﻿using IndependentWork1.Interfaces;
-using System;
 using System.Collections;
-using System.Text;
 
 namespace IndependentWork1.Models
 {

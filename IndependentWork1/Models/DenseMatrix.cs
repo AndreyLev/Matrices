@@ -1,8 +1,6 @@
-﻿using IndependentWork1.Interfaces;
-using System;
+﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace IndependentWork1.Models
 {
@@ -33,8 +31,7 @@ namespace IndependentWork1.Models
             {
                 for (int j = 0; j < ColumnNumber; j++)
                 {
-                    if (matrix[i][j] == 0) continue;
-                    Console.Write("{0,7:##.#0} ", matrix[i][j]);
+                    Console.Write("| {0,-5:00.00} |", matrix[i][j]);
                 }
                 Console.WriteLine();
             }

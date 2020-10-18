@@ -1,7 +1,4 @@
 ﻿using IndependentWork1.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace IndependentWork1.Models
 {

@@ -1,7 +1,5 @@
 ﻿using IndependentWork1.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace IndependentWork1.Models
 {
@@ -24,7 +22,7 @@ namespace IndependentWork1.Models
         }
         public double getValue(int index)
         {
-            return coords[index];
+            return this[index];
         }
 
         public double[] getVector()
@@ -34,7 +32,7 @@ namespace IndependentWork1.Models
 
         public int setValue(int index, double value)
         {
-            coords[index] = value;
+            this[index] = value;
             return 1;
         }
 
