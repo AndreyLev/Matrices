@@ -58,15 +58,14 @@ namespace IndependentWork1.Models
 
                 for (int k = 0; k < ColumnNumber; k++)
                 {
-                    // if (matrix[i].Vector.ContainsKey(k))
-                    // {
+                    
                     if (this[i, k] == 0)
                     {
                         Console.Write("| {0,5} |", " ");
                         continue;
                     }
                     Console.Write("| {0,5:00.00} |", this[i, k]);
-                    // }
+                    
 
                 }
                 Console.WriteLine();
