@@ -40,11 +40,16 @@ namespace IndependentWork1
             MatrixStatistics sparseMatrixStatistics = new MatrixStatistics(sparseMatrix);
             Console.WriteLine("Размер матрицы: {0} x {1}", sparseMatrix.RowNumber, sparseMatrix.ColumnNumber);
             sparseMatrix.printMatrix();
+           
             Console.WriteLine("Сумма элементов матрицы: " + sparseMatrixStatistics.ValuesSum);
             Console.WriteLine("Среднее значение матрицы: " + sparseMatrixStatistics.Mean);
             Console.WriteLine("Максимальное значение матрицы: " + sparseMatrixStatistics.MaxValue);
             Console.WriteLine("Количество ненулевых элементов: " + sparseMatrixStatistics.nonValuesElementsCount);
-            
+
+
+          
+
+
         }
     }
 }

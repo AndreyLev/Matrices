@@ -5,28 +5,20 @@ namespace IndependentWork1.Models
 {
     class SparseMatrix : SomeMatrix
     {
-        new SparseVector[] matrix;
 
-        public SparseVector[] Matrix { 
-            
-            get
-            {
-                return matrix;
-            } 
-        }
-
+       
         public override double this[int rowIndex, int columnIndex]
         {
             get
             {
                 if (rowIndex >= RowNumber) return 0;
                 if (columnIndex >= ColumnNumber) return 0;
-
-                if (matrix[rowIndex].Vector.Keys.Contains(columnIndex))
+                SparseVector temp = (SparseVector)matrix[rowIndex];
+                if (temp.Vector.ContainsKey(columnIndex))
                 {
                     return matrix[rowIndex][columnIndex];
                 }
-
+                 
                 return 0;
             }
             set
@@ -47,7 +39,7 @@ namespace IndependentWork1.Models
         }
         public override IEnumerator GetEnumerator()
         {
-            return new SparceMatrixEnumerator(matrix);
+            return new SparceMatrixEnumerator((SparseVector[]) matrix);
         }
 
         public void printMatrix()
@@ -75,13 +67,14 @@ namespace IndependentWork1.Models
 
         public void collapse()
         {
+            SparseVector[] c_matrix = (SparseVector[]) matrix;
             for (int i = 0; i < RowNumber; i++)
             {
                 for (int j = 0; j < ColumnNumber; j++)
                 {
-                    if (matrix[i][j] == 0)
+                    if (this[i,j] == 0)
                     {
-                       matrix[i].removeElement(j);
+                       c_matrix[i].removeElement(j);
                      
                     }
                 }

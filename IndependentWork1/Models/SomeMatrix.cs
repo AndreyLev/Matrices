@@ -13,6 +13,9 @@ namespace IndependentWork1.Models
             set { matrix[rowIndex][columnIndex] = value; }
         }
 
+
+        public IVector[] MATRIX { get { return matrix; } }
+
         public int RowNumber { get; protected set;  }
 
         public int ColumnNumber { get; protected set;  }

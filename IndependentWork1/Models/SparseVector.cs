@@ -34,7 +34,7 @@ namespace IndependentWork1.Models
         public SparseVector(int dim)
         {
             vector = new SortedList<int, double>(dim);
-            for (int i = 0; i <= dim; i++)
+            for (int i = 0; i < dim; i++)
             {
                 vector.Add(i, 0);
             }
