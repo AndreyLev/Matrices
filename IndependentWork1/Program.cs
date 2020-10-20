@@ -47,9 +47,6 @@ namespace IndependentWork1
             Console.WriteLine("Количество ненулевых элементов: " + sparseMatrixStatistics.nonValuesElementsCount);
 
 
-          
-
-
         }
     }
 }

@@ -6,7 +6,7 @@ namespace IndependentWork1.Models
 {
     class SparseVector : IVector
     {
-        public int DIM { get; set; }
+        public int DIM { get; }
 
         SortedList<int, double> vector;
 
@@ -28,6 +28,10 @@ namespace IndependentWork1.Models
             {
                 if (vector.ContainsKey(index))
                     vector[index] = value;
+                else if (index < DIM)
+                {
+                    vector.Add(index, value);
+                }
             }
         }
 

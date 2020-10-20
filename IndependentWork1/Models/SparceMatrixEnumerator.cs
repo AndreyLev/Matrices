@@ -8,7 +8,7 @@ namespace IndependentWork1.Models
     {
         SparseVector[] matrix;
         int rowPosition = -1;
-        int key = -1;
+        int key = 0;
         int keyCounter = 0;
 
         public SparceMatrixEnumerator(SparseVector[] matrix)
@@ -21,8 +21,7 @@ namespace IndependentWork1.Models
             get
             {
                 if (rowPosition == -1 || key < 0
-                    || rowPosition >= matrix.Length
-                    || keyCounter > matrix[rowPosition].Vector.Keys.Count)
+                    || rowPosition >= matrix.Length)
                     throw new InvalidOperationException();
                 return matrix[rowPosition][key];
 
@@ -32,54 +31,40 @@ namespace IndependentWork1.Models
         public bool MoveNext()
         {
             
-
             if (rowPosition == -1) rowPosition++;
 
-          
+            if (keyCounter == matrix[rowPosition].Vector.Keys.Count)
+            {
+                keyCounter = 0;
+                if (rowPosition + 1 == matrix.Length) return false;
+                rowPosition++;
+            }
+
+
             if (rowPosition < matrix.Length)
             {
-
-               if (matrix[rowPosition].Vector.Keys.Count > 0)
+                if (matrix[rowPosition].Vector.Keys.Count > 0)
                 {
-                    if (keyCounter < matrix[rowPosition].Vector.Keys.Count)
+                    key = matrix[rowPosition].Vector.Keys[keyCounter];
+                    keyCounter++;
+                    return true;
+                }
+                else if (matrix[rowPosition].Vector.Keys.Count == 0)
+                {
+                    while (matrix[rowPosition].Vector.Keys.Count == 0)
                     {
-                        key = matrix[rowPosition].Vector.Keys[keyCounter];
-                        keyCounter++;
-                        
-                        return true;
-                    }
-                    else if (keyCounter == matrix[rowPosition].Vector.Keys.Count)
-                    {
-                        keyCounter = 0;
+                        if (rowPosition + 1 == matrix.Length) return false;
                         rowPosition++;
- 
-                        if (rowPosition >= matrix.Length) return false;
-                        
-                        if (matrix[rowPosition].Vector.Keys.Count > 0)
-                        {
-                            key = matrix[rowPosition].Vector.Keys[keyCounter];
-                            keyCounter++;
-                        } else if (rowPosition < matrix.Length)
-                        {
-                            rowPosition++;
-                            if (rowPosition == matrix.Length) return false;
-                        }
                     }
 
-                    return true;
-                } else if (matrix[rowPosition].Vector.Keys.Count == 0)
-                {
-                    rowPosition++;
-                    if (rowPosition == matrix.Length) return false;
                     keyCounter = 0;
-                    key = 0;
-                    return true;
-                }      
-                else
-                {
-                    return false;           
-                }    
+                    key = matrix[rowPosition].Vector.Keys[keyCounter];
+                    keyCounter++;
 
+                    return true;
+                }
+                else
+                    return false;
             }
             else
                 return false;
@@ -88,7 +73,7 @@ namespace IndependentWork1.Models
         public void Reset()
         {
             rowPosition = -1;
-            key = -1;
+            key = 0;
             keyCounter = 0;
         }
     }

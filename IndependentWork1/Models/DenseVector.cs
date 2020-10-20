@@ -11,8 +11,16 @@ namespace IndependentWork1.Models
 
         public double this[int index]
         {
-            get { return coords[index];  }
-            set { coords[index] = value; }
+            get { 
+                if (index <  DIM)
+                    return coords[index];
+
+                return 0;
+            }
+            set { 
+                if (index < DIM)
+                   coords[index] = value; 
+            }
         }
 
         public DenseVector(int coordsCount)
