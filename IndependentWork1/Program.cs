@@ -20,13 +20,9 @@ namespace IndependentWork1
             matrixMaxValue = 25;
             DenseMatrix denseMatrix = new DenseMatrix(rowCount, columnCount);
             MatrixInitiator.FillMatrix(denseMatrix, nonValueElementsNumber, matrixMaxValue);
-            MatrixStatistics denseMatrixStatistics = new MatrixStatistics(denseMatrix);
             Console.WriteLine("Размер матрицы: {0} x {1}", denseMatrix.RowNumber, denseMatrix.ColumnNumber);
-            denseMatrix.printMatrix();
-            Console.WriteLine("Сумма элементов матрицы: " + denseMatrixStatistics.ValuesSum);
-            Console.WriteLine("Среднее значение матрицы: " + denseMatrixStatistics.Mean);
-            Console.WriteLine("Максимальное значение матрицы: " + denseMatrixStatistics.MaxValue);
-            Console.WriteLine("Количество ненулевых элементов: " + denseMatrixStatistics.nonValuesElementsCount);
+            denseMatrix.PrintMatrix();
+            denseMatrix.PrintMatrixData();
 
             Console.WriteLine();
 
@@ -37,14 +33,9 @@ namespace IndependentWork1
             matrixMaxValue = 15;
             SparseMatrix sparseMatrix = new SparseMatrix(rowCount, columnCount);
             MatrixInitiator.FillMatrix(sparseMatrix, nonValueElementsNumber, matrixMaxValue);
-            MatrixStatistics sparseMatrixStatistics = new MatrixStatistics(sparseMatrix);
             Console.WriteLine("Размер матрицы: {0} x {1}", sparseMatrix.RowNumber, sparseMatrix.ColumnNumber);
-            sparseMatrix.printMatrix();
-           
-            Console.WriteLine("Сумма элементов матрицы: " + sparseMatrixStatistics.ValuesSum);
-            Console.WriteLine("Среднее значение матрицы: " + sparseMatrixStatistics.Mean);
-            Console.WriteLine("Максимальное значение матрицы: " + sparseMatrixStatistics.MaxValue);
-            Console.WriteLine("Количество ненулевых элементов: " + sparseMatrixStatistics.nonValuesElementsCount);
+            sparseMatrix.PrintMatrix();
+            sparseMatrix.PrintMatrixData();
 
 
         }

@@ -28,21 +28,6 @@ namespace IndependentWork1.Models
             coords = new double[coordsCount];
             DIM = coordsCount;
         }
-        public double getValue(int index)
-        {
-            return this[index];
-        }
-
-        public double[] getVector()
-        {
-            return coords;
-        }
-
-        public int setValue(int index, double value)
-        {
-            this[index] = value;
-            return 1;
-        }
 
         public void printValue()
         {

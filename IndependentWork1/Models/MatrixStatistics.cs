@@ -12,8 +12,15 @@ namespace IndependentWork1.Models
             get
             {
                 double sum = 0;
-                foreach (double el in matrix)
-                    sum += el;
+                //foreach (double el in matrix)
+                //    sum += el;
+                for (int i = 0; i < matrix.RowNumber; i++)
+                {
+                    for (int j = 0; j < matrix.ColumnNumber; j++)
+                    {
+                        sum += matrix[i, j];
+                    }
+                }
                 return sum;
             }
         }
@@ -21,7 +28,7 @@ namespace IndependentWork1.Models
         {
             get
             {
-                return ValuesSum / (matrix.RowNumber * matrix.ColumnNumber);
+                return ValuesSum / nonValuesElementsCount;
             }
         }
         public double MaxValue
@@ -29,8 +36,13 @@ namespace IndependentWork1.Models
             get
             {
                 double max = matrix[0,0];
-                foreach (double el in matrix)
-                        if (el > max) max = el;
+                for (int i = 0; i < matrix.RowNumber; i++)
+                {
+                    for (int j = 0; j < matrix.ColumnNumber; j++)
+                    {
+                        if (matrix[i, j] > max) max = matrix[i, j];
+                    }
+                }
                 return max;
             }
         }
@@ -39,7 +51,13 @@ namespace IndependentWork1.Models
             get
             {
                 int count = 0;
-                foreach (double el in matrix) if (el > 0) count++;
+                for (int i = 0; i < matrix.RowNumber; i++)
+                {
+                    for (int j = 0; j < matrix.ColumnNumber; j++)
+                    {
+                        if (matrix[i, j] > 0) count++;
+                    }
+                }
                 return count;
             }
         }

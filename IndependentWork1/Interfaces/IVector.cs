@@ -9,8 +9,6 @@ namespace IndependentWork1.Interfaces
         public int DIM { get; }
 
         double this[int index] { get; set; }
-        double getValue(int index);
 
-        int setValue(int index, double value);
     }
 }

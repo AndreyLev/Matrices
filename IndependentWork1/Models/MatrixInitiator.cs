@@ -50,11 +50,6 @@ namespace IndependentWork1.Models
                 }
             }
 
-            if (matrix is SparseMatrix)
-            {
-                SparseMatrix sparceMatrix = (SparseMatrix) matrix;
-                sparceMatrix.collapse();
-            }
         }
         public static void FillMatrix(IMatrix matrix, int nonValueElementsNumber, double maxValue)
         {

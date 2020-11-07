@@ -1,41 +1,21 @@
-﻿using System;
+﻿using IndependentWork1.Interfaces;
+using System;
 using System.Collections;
-
+using System.Dynamic;
 
 namespace IndependentWork1.Models
 {
     class DenseMatrix : SomeMatrix
     {
-
-
-        public DenseMatrix(int rowCount, int columnCount)
+        protected override IVector create(int size)
         {
-            matrix = new DenseVector[rowCount];
-            for (int i = 0; i < matrix.Length; i++)
-            {
-                matrix[i] = new DenseVector(columnCount);
-            }
-            RowNumber = rowCount;
-            ColumnNumber = columnCount;
+            return new DenseVector(size);
         }
+    
 
-        public override IEnumerator GetEnumerator()
-        {
-            return new DenseMatrixEnumerator((DenseVector[]) matrix);
+        public DenseMatrix(int rowCount,int columnCount) : base(rowCount, columnCount)
+        { 
         }
-
-        public void printMatrix()
-        {
-            
-            for (int i = 0; i < RowNumber; i++)
-            {
-                for (int j = 0; j < ColumnNumber; j++)
-                {
-                    Console.Write("| {0,-5:00.00} |", matrix[i][j]);
-                }
-                Console.WriteLine();
-            }
-        }
-
+     
     }
 }
